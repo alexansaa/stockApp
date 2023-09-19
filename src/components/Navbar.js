@@ -2,30 +2,28 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const links = [
-  { path: '/', text: 'Home'},
+  { path: '/', text: 'Home' },
 ];
 
-const Navbar = () => {
-  return (
-    <nav>
+const Navbar = () => (
+  <nav>
+    <div>
       <div>
-        <div>
-          <h1>Financial Freedom!</h1>
-        </div>
-        <div>
-          <ul>
-            {links.map((link) => (
-              <React.Fragment key={link.text}>
-                <li>
-                  <NavLink to={link.path}>{link.text}</NavLink>
-                </li>
-              </React.Fragment>
-            ))}
-          </ul>
-        </div>
+        <h1>Financial Freedom!</h1>
       </div>
-    </nav> 
-  )
-};
+      <div>
+        <ul>
+          {links.map((link) => (
+            <React.Fragment key={link.text}>
+              <li>
+                <NavLink to={link.path}>{link.text}</NavLink>
+              </li>
+            </React.Fragment>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </nav>
+);
 
 export default Navbar;

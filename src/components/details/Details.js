@@ -1,9 +1,7 @@
-const Details = () => {
-  return (
-    <div>
-      Hello details
-    </div>
-  );
-}
+const Details = () => (
+  <div>
+    Hello details
+  </div>
+);
 
 export default Details;
