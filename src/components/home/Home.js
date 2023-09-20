@@ -1,57 +1,77 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getStatementsNames } from '../../store/homeSlice';
+import { useNavigate } from 'react-router-dom';
 
-import Income from './Income';
-import CashFlow from './CashFlow';
-import Balance from './Balance';
+import { getActivesNames } from '../../store/homeSlice';
+import {
+  setDetail, setCompanyName, setPeriod, setLimit, setTicker,
+} from '../../store/detailsSlice';
+
+import styles from '../../styles/home.module.css';
 
 const Home = () => {
   const [selectedOption, setSelectedOption] = useState(null);
+  const [advanceFilter, setAdvanceFilter] = useState(false);
 
-  const handleRadioChange = (event) => {
-    setSelectedOption(event.target.value);
-  };
-
-  const rednerComponent = () => {
-    if (selectedOption === 'Income') {
-      return <Income />;
-    }
-    if (selectedOption === 'Balance') {
-      return <Balance />;
-    }
-    if (selectedOption === 'CashFlow') {
-      return <CashFlow />;
-    }
-
-    return null;
-  };
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
   const {
-    statements, isLoading, error, fetched, display,
-  } = useSelector((store) => store.statement);
+    actives, isLoading, error, fetched,
+  } = useSelector((store) => store.actives);
+
+  const {
+    selectedReport,
+  } = useSelector((store) => store.details);
 
   useEffect(() => {
+    setSelectedOption(selectedReport);
     if (!fetched) {
-      dispatch(getStatementsNames());
+      dispatch(getActivesNames());
     }
   }, []);
 
-  const checkExists = (event) => {
-    const checkName = event.target.value.toUpperCase();
-    if (statements.includes(checkName)) {
-      const namesList = document.querySelector('#nameList');
-      const option = document.createElement('option');
-      option.text = checkName;
-      namesList.appendChild(option);
-      namesList.value = checkName;
+  const nameListChange = (event) => {
+    const myActive = actives.filter((activ) => activ.companyName === event.target.value);
+    dispatch(setCompanyName(myActive[0].companyName));
+    dispatch(setTicker(myActive[0].ticker));
+  };
+
+  const handleRadioChange = (event) => {
+    setSelectedOption(event.target.value);
+    dispatch(setDetail(event.target.value));
+  };
+
+  const ToggleFilter = () => {
+    const AdvanceFilter = document.querySelector('#AdvanceFilter');
+    if (advanceFilter) {
+      AdvanceFilter.style.display = 'none';
+    } else {
+      AdvanceFilter.style.display = 'block';
     }
+  };
+
+  const handleAdvanceFilter = () => {
+    setAdvanceFilter(!advanceFilter);
+    ToggleFilter();
+  };
+
+  const periodChange = (event) => {
+    dispatch(setPeriod(event.target.value));
+  };
+
+  const handleLimitValue = (event) => {
+    dispatch(setLimit(event.target.value));
   };
 
   const onSubmit = (event) => {
     event.preventDefault();
-    console.log(selectedOption);
+    const companyName = document.querySelector('#nameList').value;
+    if (companyName === '-') {
+      alert('Select a valid Company Name');
+    } else {
+      navigate('/details');
+    }
   };
 
   if (isLoading) {
@@ -66,17 +86,13 @@ const Home = () => {
     <>
       <div>
         <div>
-          Type any statement
+          Company Names
         </div>
-        <input type="text" id="statementNames" name="statementNames" placeholder="Any statement" onChange={checkExists} />
-
-        <div>
-          Statement Names
-        </div>
-        <select id="nameList">
-          {display.map((option) => (
-            <option key={option} value={option}>
-              {option}
+        <select id="nameList" onChange={nameListChange} defaultValue="-">
+          <option value="-" disabled>-</option>
+          {actives.map((active) => (
+            <option key={active.companyName} value={active.companyName}>
+              {active.companyName}
             </option>
           ))}
         </select>
@@ -120,8 +136,30 @@ const Home = () => {
             Cash Flow
           </label>
         </form>
+        <button type="button" onClick={handleAdvanceFilter}>Advance Filter</button>
+        <div id="AdvanceFilter" className={styles.hidden}>
+          <div>
+            <div>
+              Select a period
+            </div>
+            <select id="periodList" onChange={periodChange} defaultValue="-">
+              <option value="-" disabled>-</option>
+              <option key="quarter">Quarter</option>
+              <option key="annual">Annual</option>
+            </select>
+          </div>
+          <div>
+            <div>
+              Select a limit
+            </div>
+            <select id="limit" onChange={handleLimitValue} defaultValue="-">
+              <option value="-" disabled>-</option>
+              <option key="120">120</option>
+              <option key="400">400</option>
+            </select>
+          </div>
+        </div>
       </div>
-      {rednerComponent()}
       <div>
         <button type="button" onClick={onSubmit}>Submit Request</button>
       </div>

@@ -1,8 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import backBtn from '../assets/back.png';
 
 const links = [
-  { path: '/', text: 'Home' },
+  { path: '/', text: 'back', src: backBtn },
 ];
 
 const Navbar = () => (
@@ -15,9 +16,9 @@ const Navbar = () => (
         <ul>
           {links.map((link) => (
             <React.Fragment key={link.text}>
-              <li>
-                <NavLink to={link.path}>{link.text}</NavLink>
-              </li>
+              <NavLink to={link.path}>
+                <img src={link.src} alt={link.text} />
+              </NavLink>
             </React.Fragment>
           ))}
         </ul>

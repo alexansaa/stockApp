@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import statementReducer from './homeSlice';
+import activesReducer from './homeSlice';
+import detailsReducer from './detailsSlice';
 
 const store = configureStore({
   reducer: {
-    statement: statementReducer,
+    actives: activesReducer,
+    details: detailsReducer,
   },
 });
 
