@@ -1,30 +1,27 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import backBtn from '../assets/back.png';
+import { useSelector } from 'react-redux/es/hooks/useSelector';
+// import { NavLink } from 'react-router-dom';
 
-const links = [
-  { path: '/', text: 'back', src: backBtn },
+import backBtn from '../assets/back.png';
+import styles from '../styles/Navbar.module.css';
+
+const link = [
+  {
+    path: '/', text: 'back',
+  },
 ];
 
-const Navbar = () => (
-  <nav>
-    <div>
-      <div>
-        <h1>Financial Freedom!</h1>
+const Navbar = () => {
+  const { PageName } = useSelector((store) => store.layout);
+
+  return (
+    <nav>
+      <div className={styles.look}>
+        <img src={backBtn} alt={link.text} className={styles.whiteArrow} />
+        <h1>{PageName}</h1>
       </div>
-      <div>
-        <ul>
-          {links.map((link) => (
-            <React.Fragment key={link.text}>
-              <NavLink to={link.path}>
-                <img src={link.src} alt={link.text} />
-              </NavLink>
-            </React.Fragment>
-          ))}
-        </ul>
-      </div>
-    </div>
-  </nav>
-);
+    </nav>
+  );
+};
 
 export default Navbar;
