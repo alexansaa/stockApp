@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import Filter from './Filter';
 import ActivesList from './ActivesList';
-
+import { setPageName } from '../../store/LayoutSlice';
 import { getActivesNames } from '../../store/homeSlice';
 
 import styles from '../../styles/Home.module.css';
@@ -18,6 +18,7 @@ const Home = () => {
     if (!fetched) {
       dispatch(getActivesNames());
     }
+    dispatch(setPageName('Actives'));
   }, []);
 
   if (isLoading) {

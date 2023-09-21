@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 
+import styles from '../../styles/BalanceItem.module.css';
+
 const BalanceItems = ({
   date,
   accountPayables,
@@ -7,35 +9,33 @@ const BalanceItems = ({
   cashAndCashEquivalents,
   cashAndShortTermInvestments,
   commonStock,
-  intangibleAssets,
-  goodwill,
-  longTermDebt,
-  longTermInvestments,
-  minorityInterest,
-  totalAssets,
-  totalDebt,
-  totalEquity,
-  totalInvestments,
-  totalStockholdersEquity,
 }) => (
-  <>
-    {date}
-    {accountPayables}
-    {capitalLeaseObligations}
-    {cashAndCashEquivalents}
-    {cashAndShortTermInvestments}
-    {commonStock}
-    {intangibleAssets}
-    {goodwill}
-    {longTermDebt}
-    {longTermInvestments}
-    {minorityInterest}
-    {totalAssets}
-    {totalDebt}
-    {totalEquity}
-    {totalInvestments}
-    {totalStockholdersEquity}
-  </>
+  <div className={`${styles.look} ${styles.white}`}>
+    <div>
+      Date:
+      {` ${date}`}
+    </div>
+    <div>
+      Account Payables:
+      {` ${accountPayables}`}
+    </div>
+    <div>
+      Capital Lease Obligations:
+      {` ${capitalLeaseObligations}`}
+    </div>
+    <div>
+      Cash & Cash Equivalents:
+      {` ${cashAndCashEquivalents}`}
+    </div>
+    <div>
+      Cash & Short Term Investments:
+      {` ${cashAndShortTermInvestments}`}
+    </div>
+    <div>
+      Common Stock:
+      {` ${commonStock}`}
+    </div>
+  </div>
 );
 
 BalanceItems.propTypes = {
@@ -45,16 +45,6 @@ BalanceItems.propTypes = {
   cashAndCashEquivalents: PropTypes.number.isRequired,
   cashAndShortTermInvestments: PropTypes.number.isRequired,
   commonStock: PropTypes.number.isRequired,
-  intangibleAssets: PropTypes.number.isRequired,
-  goodwill: PropTypes.number.isRequired,
-  longTermDebt: PropTypes.number.isRequired,
-  longTermInvestments: PropTypes.number.isRequired,
-  minorityInterest: PropTypes.number.isRequired,
-  totalAssets: PropTypes.number.isRequired,
-  totalDebt: PropTypes.number.isRequired,
-  totalEquity: PropTypes.number.isRequired,
-  totalInvestments: PropTypes.number.isRequired,
-  totalStockholdersEquity: PropTypes.number.isRequired,
 };
 
 export default BalanceItems;

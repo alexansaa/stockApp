@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 
+import styles from '../../styles/CashFlowItems.module.css';
+
 const CashFlowItem = ({
   date,
   accountsPayables,
@@ -7,41 +9,33 @@ const CashFlowItem = ({
   acquisitionsNet,
   cashAtBeginningOfPeriod,
   cashAtEndOfPeriod,
-  changeInWorkingCapital,
-  commonStockIssued,
-  commonStockRepurchased,
-  debtRepayment,
-  deferredIncomeTax,
-  dividendsPaid,
-  freeCashFlow,
-  inventory,
-  investmentsInPropertyPlantAndEquipment,
-  netCashProvidedByOperatingActivities,
-  netChangeInCash,
-  netIncome,
-  operatingCashFlow,
 }) => (
-  <>
-    {date}
-    {accountsPayables}
-    {accountsReceivables}
-    {acquisitionsNet}
-    {cashAtBeginningOfPeriod}
-    {cashAtEndOfPeriod}
-    {changeInWorkingCapital}
-    {commonStockIssued}
-    {commonStockRepurchased}
-    {debtRepayment}
-    {deferredIncomeTax}
-    {dividendsPaid}
-    {freeCashFlow}
-    {inventory}
-    {investmentsInPropertyPlantAndEquipment}
-    {netCashProvidedByOperatingActivities}
-    {netChangeInCash}
-    {netIncome}
-    {operatingCashFlow}
-  </>
+  <div className={`${styles.look} ${styles.white}`}>
+    <div>
+      Date:
+      {` ${date}`}
+    </div>
+    <div>
+      Accounts Payables:
+      {` ${accountsPayables}`}
+    </div>
+    <div>
+      Accounts Receivables:
+      {` ${accountsReceivables}`}
+    </div>
+    <div>
+      Acquisitions Net:
+      {` ${acquisitionsNet}`}
+    </div>
+    <div>
+      Cash At Beginning Of Period:
+      {` ${cashAtBeginningOfPeriod}`}
+    </div>
+    <div>
+      Cash At End Of Period:
+      {` ${cashAtEndOfPeriod}`}
+    </div>
+  </div>
 );
 
 CashFlowItem.propTypes = {
@@ -51,19 +45,6 @@ CashFlowItem.propTypes = {
   acquisitionsNet: PropTypes.number.isRequired,
   cashAtBeginningOfPeriod: PropTypes.number.isRequired,
   cashAtEndOfPeriod: PropTypes.number.isRequired,
-  changeInWorkingCapital: PropTypes.number.isRequired,
-  commonStockIssued: PropTypes.number.isRequired,
-  commonStockRepurchased: PropTypes.number.isRequired,
-  debtRepayment: PropTypes.number.isRequired,
-  deferredIncomeTax: PropTypes.number.isRequired,
-  dividendsPaid: PropTypes.number.isRequired,
-  freeCashFlow: PropTypes.number.isRequired,
-  inventory: PropTypes.number.isRequired,
-  investmentsInPropertyPlantAndEquipment: PropTypes.number.isRequired,
-  netCashProvidedByOperatingActivities: PropTypes.number.isRequired,
-  netChangeInCash: PropTypes.number.isRequired,
-  netIncome: PropTypes.number.isRequired,
-  operatingCashFlow: PropTypes.number.isRequired,
 };
 
 export default CashFlowItem;

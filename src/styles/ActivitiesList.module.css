@@ -38,12 +38,12 @@
 
 ul li:nth-child(4n-3),
 ul li:nth-child(4n) {
-  background-color: rgb(216, 86, 155);
+  background-color: rgb(185, 67, 130);
 }
 
 ul li:nth-child(4n-2),
 ul li:nth-child(4n-1) {
-  background-color: rgb(185, 67, 130);
+  background-color: rgb(216, 86, 155);
 }
 
 ul li {

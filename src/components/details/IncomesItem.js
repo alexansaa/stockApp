@@ -8,11 +8,11 @@ const IncomesItem = ({
   costAndExpenses,
   costOfRevenue,
   depreciationAndAmortization,
-  generalAndAdministrativeExpenses,
-  grossProfit,
-  grossProfitRatio,
+  // generalAndAdministrativeExpenses,
+  // grossProfit,
+  // grossProfitRatio,
 }) => (
-  <div className={styles.look}>
+  <div className={`${styles.look} ${styles.white}`}>
     <div>
       Date:
       {date}
@@ -33,7 +33,7 @@ const IncomesItem = ({
       Deprecation & Amortization:
       {depreciationAndAmortization}
     </div>
-    <div>
+    {/* <div>
       General & Administrative Exprenses:
       {generalAndAdministrativeExpenses}
     </div>
@@ -44,7 +44,7 @@ const IncomesItem = ({
     <div>
       Gross Profit Ratio:
       {grossProfitRatio}
-    </div>
+    </div> */}
   </div>
 );
 
@@ -54,9 +54,9 @@ IncomesItem.propTypes = {
   costAndExpenses: PropTypes.number.isRequired,
   costOfRevenue: PropTypes.number.isRequired,
   depreciationAndAmortization: PropTypes.number.isRequired,
-  generalAndAdministrativeExpenses: PropTypes.number.isRequired,
-  grossProfit: PropTypes.number.isRequired,
-  grossProfitRatio: PropTypes.number.isRequired,
+  // generalAndAdministrativeExpenses: PropTypes.number.isRequired,
+  // grossProfit: PropTypes.number.isRequired,
+  // grossProfitRatio: PropTypes.number.isRequired,
 };
 
 export default IncomesItem;

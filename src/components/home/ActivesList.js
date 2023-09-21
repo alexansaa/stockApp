@@ -20,7 +20,7 @@ const ActivesList = ({ actives }) => {
   };
 
   return (
-    <div>
+    <div id="ActivesList">
       <div className={`${styles.title} ${styles.IbmFont} ${styles.white}`}>Companies</div>
       <ul className={styles.elements}>
         {actives.map((element) => (
