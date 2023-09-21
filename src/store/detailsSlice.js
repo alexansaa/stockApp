@@ -2,8 +2,8 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const baseUrl = 'https://financialmodelingprep.com/api/v3/';
-// const apiKey = '?apikey=997aab514b57afa044984ff55c637aea';
-const apiKey = '?apikey=6b95001963e6cd8dcebf69ae7bf0a25c';
+const apiKey = '?apikey=997aab514b57afa044984ff55c637aea';
+// const apiKey = '?apikey=6b95001963e6cd8dcebf69ae7bf0a25c';
 // const symbolsEndPoint = 'financial-statement-symbol-lists';
 const incomeEndPoint = 'income-statement/';
 const balanceEndPoint = 'balance-sheet-statement/';

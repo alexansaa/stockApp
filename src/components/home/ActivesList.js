@@ -12,14 +12,9 @@ const ActivesList = ({ actives }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const itemSubmit = (event) => {
-    console.log('item click');
-    const tmpItem = event.target;
-    const tmpDetails = document.getElementById(`${tmpItem.id}-Title`);
-    const myDetails = tmpDetails.textContent.match(/^(.*?)\s+\((.*?)\)$/);
-
-    dispatch(setCompanyName(myDetails[1]));
-    dispatch(setTicker(myDetails[2]));
+  const itemSubmit = (event, myCompanyName, myTicker) => {
+    dispatch(setCompanyName(myCompanyName));
+    dispatch(setTicker(myTicker));
 
     navigate('/details');
   };
@@ -30,8 +25,8 @@ const ActivesList = ({ actives }) => {
       <ul className={styles.elements}>
         {actives.map((element) => (
           <li key={element.ticker}>
-            <button id={element.ticker} className={styles.itemDesc} onClick={itemSubmit} type="button">
-              <h4 id={`${element.ticker}-Title`} className={`${styles.itemTitle} ${styles.white} ${styles.latoFont}`}>{`${element.companyName} (${element.ticker})`}</h4>
+            <button id={element.ticker} className={styles.itemDesc} onClick={(event) => itemSubmit(event, element.companyName, element.ticker)} type="button">
+              <h4 className={`${styles.itemTitle} ${styles.white} ${styles.latoFont}`}>{`${element.companyName} (${element.ticker})`}</h4>
               <div className={styles.itemInfo}>
                 <p className={`${styles.white} ${styles.IbmFont}`}>
                   Price:

@@ -1,13 +1,17 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { getIncomesItems, getBalanceItems, getCashFlowItems } from '../../store/detailsSlice';
+import { setPageName } from '../../store/LayoutSlice';
 
 import IncomesItem from './IncomesItem';
 import BalanceItem from './BalanceItem';
 import CashFlow from './CashFlowItem';
 
+import styles from '../../styles/Details.module.css';
+
 const Details = () => {
   const dispatch = useDispatch();
+
   const {
     selectedReport,
     companyName,
@@ -22,6 +26,8 @@ const Details = () => {
   } = useSelector((store) => store.details);
 
   useEffect(() => {
+    dispatch(setPageName(`${selectedReport} Report`));
+
     if (selectedReport === 'Income') {
       dispatch(getIncomesItems(ticker, limit, period));
     }
@@ -43,9 +49,37 @@ const Details = () => {
 
   if (selectedReport === 'Income') {
     return (
-      <>
-        {companyName}
-        {ticker}
+      <div className={`${styles.look} ${styles.latoFont}`}>
+        <div className={styles.myActiveLook}>
+          <h2>{companyName}</h2>
+          {`(${ticker})`}
+          <div className={styles.myActiveDetails}>
+            <div>
+              {period > -1 ? (
+                <>
+                  Period:
+                  {` ${period}`}
+                </>
+              ) : (
+                <>
+                  Period: All Periods
+                </>
+              )}
+            </div>
+            <div>
+              {limit > -1 ? (
+                <>
+                  Limit:
+                  {` ${limit}`}
+                </>
+              ) : (
+                <>
+                  Limit: No Limit
+                </>
+              )}
+            </div>
+          </div>
+        </div>
         <ul>
           {detailedIncome.map((element) => (
             <li key={element.date}>
@@ -62,7 +96,7 @@ const Details = () => {
             </li>
           ))}
         </ul>
-      </>
+      </div>
     );
   }
 

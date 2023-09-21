@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import PropTypes from 'prop-types';
-import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import {
@@ -11,7 +10,7 @@ import { setFilteredActive } from '../../store/homeSlice';
 
 import styles from '../../styles/Filter.module.css';
 
-const Filter = ({ actives }) => {
+const Filter = ({ myActives }) => {
   const dispatch = useDispatch();
 
   const [selectedOption, setSelectedOption] = useState(null);
@@ -21,17 +20,25 @@ const Filter = ({ actives }) => {
     selectedReport,
   } = useSelector((store) => store.details);
 
+  const {
+    actives,
+  } = useSelector((store) => store.actives);
+
   useEffect(() => {
     setSelectedOption(selectedReport);
   }, []);
 
-  const navigate = useNavigate();
-
   const nameListChange = (event) => {
-    const myActive = actives.filter((activ) => activ.companyName === event.target.value);
-    dispatch(setCompanyName(myActive[0].companyName));
-    dispatch(setTicker(myActive[0].ticker));
-    dispatch(setFilteredActive([myActive[0]]));
+    if (event.target.value === '-') {
+      dispatch(setCompanyName(''));
+      dispatch(setTicker(''));
+      dispatch(setFilteredActive(actives));
+    } else {
+      const myActive = actives.filter((activ) => activ.companyName === event.target.value);
+      dispatch(setCompanyName(myActive[0].companyName));
+      dispatch(setTicker(myActive[0].ticker));
+      dispatch(setFilteredActive([myActive[0]]));
+    }
   };
 
   const handleRadioChange = (event) => {
@@ -61,16 +68,6 @@ const Filter = ({ actives }) => {
     dispatch(setLimit(event.target.value));
   };
 
-  const onSubmit = (event) => {
-    event.preventDefault();
-    const companyName = document.querySelector('#nameList').value;
-    if (companyName === '-') {
-      alert('Select a valid Company Name');
-    } else {
-      navigate('/details');
-    }
-  };
-
   return (
     <div className={styles.look}>
       <h1 className={`${styles.title} ${styles.white} ${styles.LatoFont}`}>Financial Freedom</h1>
@@ -79,8 +76,8 @@ const Filter = ({ actives }) => {
           Company Names
         </div>
         <select id="nameList" onChange={nameListChange} defaultValue="-">
-          <option value="-" disabled>-</option>
-          {actives.map((active) => (
+          <option value="-">-</option>
+          {myActives.map((active) => (
             <option key={active.companyName} value={active.companyName}>
               {active.companyName}
             </option>
@@ -150,15 +147,12 @@ const Filter = ({ actives }) => {
           </div>
         </div>
       </div>
-      <div className={styles.center}>
-        <button type="button" onClick={onSubmit} className={styles.blackBtn}>Submit Request</button>
-      </div>
     </div>
   );
 };
 
 Filter.propTypes = {
-  actives: PropTypes.arrayOf(
+  myActives: PropTypes.arrayOf(
     PropTypes.shape({
       ticker: PropTypes.string.isRequired,
       companyName: PropTypes.string.isRequired,

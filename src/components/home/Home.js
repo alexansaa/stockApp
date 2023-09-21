@@ -30,7 +30,7 @@ const Home = () => {
 
   return (
     <div className={styles.look}>
-      <Filter actives={actives} />
+      <Filter myActives={actives} />
       <ActivesList actives={filterActive} />
     </div>
   );
