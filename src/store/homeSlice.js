@@ -11,6 +11,7 @@ const initialState = {
   isLoading: true,
   error: undefined,
   fetched: false,
+  filterActive: [],
 };
 
 export const getActivesNames = createAsyncThunk('result/getActivesNames', async (thunkAPI) => {
@@ -38,7 +39,9 @@ const homeSlice = createSlice({
   name: 'actives',
   initialState,
   reducers: {
-
+    setFilteredActive: (state, action) => {
+      state.filterActive = action.payload;
+    },
   },
   extraReducers: {
     [getActivesNames.pending]: (state) => {
@@ -53,9 +56,11 @@ const homeSlice = createSlice({
     [getActivesNames.fulfilled]: (state, action) => {
       state.isLoading = false;
       state.actives = action.payload;
+      state.filterActive = action.payload;
       state.fetched = true;
     },
   },
 });
 
+export const { setFilteredActive } = homeSlice.actions;
 export default homeSlice.reducer;

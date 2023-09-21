@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  PageName: 'Hello',
+  PageName: 'Actives',
 };
 
 const LayoutSlice = createSlice({

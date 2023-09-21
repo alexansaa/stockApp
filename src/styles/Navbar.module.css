@@ -1,11 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300&family=Lato&display=swap');
+
 .look {
-  background-color: rgb(212, 63, 143);
+  background-color: rgb(216, 86, 155);
   color: white;
+  font-family: 'Lato', sans-serif;
+  display: flex;
+  justify-content: space-between;
+}
+
+.whiteImage {
+  filter: invert(100%);
+  max-height: 40px;
+}
+
+.aligned {
   display: flex;
   align-items: center;
 }
 
-.whiteArrow {
-  filter: invert(100%);
-  max-height: 45px;
+.options {
+  padding-left: 10px;
+  padding-right: 10px;
 }
