@@ -31,7 +31,7 @@ describe('Detail component', () => {
           isLoading: true,
           error: undefined,
         },
-      }
+      },
     );
 
     render(
