@@ -3,9 +3,9 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+import { MemoryRouter } from 'react-router';
 import { getActivesNames } from '../store/homeSlice';
 import Details from '../components/details/Details';
-import { MemoryRouter } from 'react-router';
 
 const mockStore = configureMockStore([thunk]);
 
@@ -13,22 +13,25 @@ describe('Detail component', () => {
   afterEach(() => {
     jest.resetAllMocks();
   });
-  
-  test('should display loading state', async () => {
-    const store = mockStore({ details: { 
-      selectedReport: 'Income',
-      companyName: 'mycompany1',
-      ticker: 'cmpy1',
-      period: -1,
-      limit: -1,
-      detailedIncome: [{
 
-      }],
-      detailedBalance: [],
-      detailedCashFlow: [],
-      isLoading: true,
-      error: undefined,
-    } });
+  test('should display loading state', async () => {
+    const store = mockStore(
+      {
+        details: { 
+          selectedReport: 'Income',
+          companyName: 'mycompany1',
+          ticker: 'cmpy1',
+          period: -1,
+          limit: -1,
+          detailedIncome: [{
+
+          }],
+          detailedBalance: [],
+          detailedCashFlow: [],
+          isLoading: true,
+          error: undefined,
+        }
+      });
 
     render(
       <Provider store={store}>
@@ -42,20 +45,22 @@ describe('Detail component', () => {
   });
 
   test('should display error state', async () => {
-    const store = mockStore({ details: { 
-      selectedReport: 'Income',
-      companyName: 'mycompany1',
-      ticker: 'cmpy1',
-      period: -1,
-      limit: -1,
-      detailedIncome: [{
+    const store = mockStore(
+      { details: {
+        selectedReport: 'Income',
+        companyName: 'mycompany1',
+        ticker: 'cmpy1',
+        period: -1,
+        limit: -1,
+        detailedIncome: [{
 
-      }],
-      detailedBalance: [],
-      detailedCashFlow: [],
-      isLoading: false,
-      error: true,
-    } });
+        }],
+        detailedBalance: [],
+        detailedCashFlow: [],
+        isLoading: false,
+        error: true,
+      }
+    });
 
     render(
       <Provider store={store}>
@@ -85,7 +90,7 @@ describe('Detail component', () => {
             changes: 15.303,
             changesPercentage: '15.303',
             price: '0.0761',
-          }
+          },
         ],
         isLoading: false,
         error: false,
@@ -104,7 +109,7 @@ describe('Detail component', () => {
             changes: 15.303,
             changesPercentage: '15.303',
             price: '0.0761',
-          }
+          },
         ],
       },
       details: {
@@ -128,7 +133,7 @@ describe('Detail component', () => {
       },
       layout: {
         PageName: 'Actives',
-      }
+      },
     });
 
     const { activePage } = render(
@@ -144,5 +149,5 @@ describe('Detail component', () => {
     await waitFor(() => {
       expect(activePage).toMatchSnapshot();
     });
-  })
+  });
 });

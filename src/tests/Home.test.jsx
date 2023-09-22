@@ -3,9 +3,10 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+import { MemoryRouter } from 'react-router';
+import { MemoryRouter } from 'react-router';
 import { getActivesNames } from '../store/homeSlice';
 import Home from '../components/home/Home';
-import { MemoryRouter } from 'react-router';
 
 const mockStore = configureMockStore([thunk]);
 
@@ -24,7 +25,7 @@ describe('Home component', () => {
     );
 
     store.dispatch(getActivesNames());
-    
+
     expect(screen.getByText('Content Loading..!').textContent).toBe('Content Loading..!');
   });
 
@@ -59,7 +60,7 @@ describe('Home component', () => {
             changes: 15.303,
             changesPercentage: '15.303',
             price: '0.0761',
-          }
+          },
         ],
         isLoading: false,
         error: false,
@@ -78,7 +79,7 @@ describe('Home component', () => {
             changes: 15.303,
             changesPercentage: '15.303',
             price: '0.0761',
-          }
+          },
         ],
       },
       details: {
@@ -102,7 +103,7 @@ describe('Home component', () => {
       },
       layout: {
         PageName: 'Actives',
-      }
+      },
     });
 
     const { activePage } = render(
@@ -118,5 +119,5 @@ describe('Home component', () => {
     await waitFor(() => {
       expect(activePage).toMatchSnapshot();
     });
-  })
+  });
 });

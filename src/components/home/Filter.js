@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
 
 import {
   setDetail, setCompanyName, setPeriod, setLimit, setTicker,

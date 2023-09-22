@@ -36,6 +36,12 @@
   padding-top: 3px;
 }
 
+ul li {
+  height: 135px;
+  position: relative;
+  display: flex;
+}
+
 ul li:nth-child(4n-3),
 ul li:nth-child(4n) {
   background-color: rgb(185, 67, 130);
@@ -44,12 +50,6 @@ ul li:nth-child(4n) {
 ul li:nth-child(4n-2),
 ul li:nth-child(4n-1) {
   background-color: rgb(216, 86, 155);
-}
-
-ul li {
-  height: 135px;
-  position: relative;
-  display: flex;
 }
 
 .itemDesc {
