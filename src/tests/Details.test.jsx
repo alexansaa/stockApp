@@ -30,7 +30,7 @@ describe('Detail component', () => {
           detailedCashFlow: [],
           isLoading: true,
           error: undefined,
-        }
+        },
       });
 
     render(
@@ -46,21 +46,23 @@ describe('Detail component', () => {
 
   test('should display error state', async () => {
     const store = mockStore(
-      { details: {
-        selectedReport: 'Income',
-        companyName: 'mycompany1',
-        ticker: 'cmpy1',
-        period: -1,
-        limit: -1,
-        detailedIncome: [{
+      {
+        details: {
+          selectedReport: 'Income',
+          companyName: 'mycompany1',
+          ticker: 'cmpy1',
+          period: -1,
+          limit: -1,
+          detailedIncome: [{
 
-        }],
-        detailedBalance: [],
-        detailedCashFlow: [],
-        isLoading: false,
-        error: true,
+          }],
+          detailedBalance: [],
+          detailedCashFlow: [],
+          isLoading: false,
+          error: true,
+        },
       }
-    });
+    );
 
     render(
       <Provider store={store}>
