@@ -1,4 +1,4 @@
-import { useSelector } from 'react-redux/es/hooks/useSelector';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import backBtn from '../assets/back.png';
