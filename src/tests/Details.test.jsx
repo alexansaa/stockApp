@@ -17,7 +17,7 @@ describe('Detail component', () => {
   test('should display loading state', async () => {
     const store = mockStore(
       {
-        details: { 
+        details: {
           selectedReport: 'Income',
           companyName: 'mycompany1',
           ticker: 'cmpy1',
@@ -31,7 +31,8 @@ describe('Detail component', () => {
           isLoading: true,
           error: undefined,
         },
-      });
+      }
+    );
 
     render(
       <Provider store={store}>
@@ -40,7 +41,7 @@ describe('Detail component', () => {
     );
 
     store.dispatch(getActivesNames());
-    
+
     expect(screen.getByText('Content Loading..!').textContent).toBe('Content Loading..!');
   });
 
@@ -61,7 +62,7 @@ describe('Detail component', () => {
           isLoading: false,
           error: true,
         },
-      }
+      },
     );
 
     render(
