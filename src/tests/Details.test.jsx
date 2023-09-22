@@ -4,22 +4,35 @@ import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { getActivesNames } from '../store/homeSlice';
-import Home from '../components/home/Home';
+import Details from '../components/details/Details';
 import { MemoryRouter } from 'react-router';
 
 const mockStore = configureMockStore([thunk]);
 
-describe('Home component', () => {
+describe('Detail component', () => {
   afterEach(() => {
     jest.resetAllMocks();
   });
-
+  
   test('should display loading state', async () => {
-    const store = mockStore({ actives: { actives: [], isLoading: true, error: null } });
+    const store = mockStore({ details: { 
+      selectedReport: 'Income',
+      companyName: 'mycompany1',
+      ticker: 'cmpy1',
+      period: -1,
+      limit: -1,
+      detailedIncome: [{
+
+      }],
+      detailedBalance: [],
+      detailedCashFlow: [],
+      isLoading: true,
+      error: undefined,
+    } });
 
     render(
       <Provider store={store}>
-        <Home />
+        <Details />
       </Provider>,
     );
 
@@ -29,11 +42,24 @@ describe('Home component', () => {
   });
 
   test('should display error state', async () => {
-    const store = mockStore({ actives: { actives: [], isLoading: false, error: true } });
+    const store = mockStore({ details: { 
+      selectedReport: 'Income',
+      companyName: 'mycompany1',
+      ticker: 'cmpy1',
+      period: -1,
+      limit: -1,
+      detailedIncome: [{
+
+      }],
+      detailedBalance: [],
+      detailedCashFlow: [],
+      isLoading: false,
+      error: true,
+    } });
 
     render(
       <Provider store={store}>
-        <Home />
+        <Details />
       </Provider>,
     );
 
@@ -108,7 +134,7 @@ describe('Home component', () => {
     const { activePage } = render(
       <Provider store={store}>
         <MemoryRouter>
-          <Home />
+          <Details />
         </MemoryRouter>
       </Provider>,
     );

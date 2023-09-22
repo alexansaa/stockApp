@@ -41,11 +41,11 @@ const Details = () => {
   }, []);
 
   if (isLoading) {
-    return <div> Content Loading..!</div>;
+    return <div>Content Loading..!</div>;
   }
 
   if (error) {
-    return <div> Fetch Error! Something went wrong!</div>;
+    return <div>Fetch Error! Something went wrong!</div>;
   }
 
   if (selectedReport === 'Income') {
