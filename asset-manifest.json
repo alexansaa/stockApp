@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "https://alexansaa.github.io/stockApp/static/css/main.e056a932.css",
-    "main.js": "https://alexansaa.github.io/stockApp/static/js/main.311a509a.js",
-    "index.html": "https://alexansaa.github.io/stockApp/index.html",
-    "main.e056a932.css.map": "https://alexansaa.github.io/stockApp/static/css/main.e056a932.css.map",
-    "main.311a509a.js.map": "https://alexansaa.github.io/stockApp/static/js/main.311a509a.js.map"
+    "main.css": "/static/css/main.e056a932.css",
+    "main.js": "/static/js/main.311a509a.js",
+    "index.html": "/index.html",
+    "main.e056a932.css.map": "/static/css/main.e056a932.css.map",
+    "main.311a509a.js.map": "/static/js/main.311a509a.js.map"
   },
   "entrypoints": [
     "static/css/main.e056a932.css",
