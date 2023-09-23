@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/stockApp/static/css/main.abb894a8.css",
-    "main.js": "/stockApp/static/js/main.5ca2f20b.js",
-    "index.html": "/stockApp/index.html",
-    "main.abb894a8.css.map": "/stockApp/static/css/main.abb894a8.css.map",
-    "main.5ca2f20b.js.map": "/stockApp/static/js/main.5ca2f20b.js.map"
+    "main.css": "https://alexansaa.github.io/stockApp/static/css/main.abb894a8.css",
+    "main.js": "https://alexansaa.github.io/stockApp/static/js/main.5ca2f20b.js",
+    "index.html": "https://alexansaa.github.io/stockApp/index.html",
+    "main.abb894a8.css.map": "https://alexansaa.github.io/stockApp/static/css/main.abb894a8.css.map",
+    "main.5ca2f20b.js.map": "https://alexansaa.github.io/stockApp/static/js/main.5ca2f20b.js.map"
   },
   "entrypoints": [
     "static/css/main.abb894a8.css",
