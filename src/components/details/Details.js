@@ -19,6 +19,7 @@ const Details = () => {
     ticker,
     period,
     limit,
+    reportedCurrency,
     detailedIncome,
     detailedBalance,
     detailedCashFlow,
@@ -51,7 +52,13 @@ const Details = () => {
   if (selectedReport === 'Income') {
     return (
       <div className={`${styles.look} ${styles.latoFont}`}>
-        <DetailTitle companyName={companyName} ticker={ticker} period={period} limit={limit} />
+        <DetailTitle
+          companyName={companyName}
+          ticker={ticker}
+          period={period}
+          limit={limit}
+          reportedCurrency={reportedCurrency}
+        />
         <IncomeList myIncomeList={detailedIncome} />
       </div>
     );
@@ -60,7 +67,13 @@ const Details = () => {
   if (selectedReport === 'Balance') {
     return (
       <div className={`${styles.look} ${styles.latoFont}`}>
-        <DetailTitle companyName={companyName} ticker={ticker} period={period} limit={limit} />
+        <DetailTitle
+          companyName={companyName}
+          ticker={ticker}
+          period={period}
+          limit={limit}
+          reportedCurrency={reportedCurrency}
+        />
         <BalanceList myBalanceList={detailedBalance} />
       </div>
     );
@@ -69,7 +82,13 @@ const Details = () => {
   if (selectedReport === 'CashFlow') {
     return (
       <div className={`${styles.look} ${styles.latoFont}`}>
-        <DetailTitle companyName={companyName} ticker={ticker} period={period} limit={limit} />
+        <DetailTitle
+          companyName={companyName}
+          ticker={ticker}
+          period={period}
+          limit={limit}
+          reportedCurrency={reportedCurrency}
+        />
         <CashFlowList myCashFlowList={detailedCashFlow} />
       </div>
     );

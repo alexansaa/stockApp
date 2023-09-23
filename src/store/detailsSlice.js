@@ -15,8 +15,9 @@ const initialState = {
   selectedReport: 'Income',
   companyName: '',
   ticker: '',
-  period: -1,
-  limit: -1,
+  period: '-',
+  limit: '-',
+  reportedCurrency: '',
   detailedIncome: [],
   detailedBalance: [],
   detailedCashFlow: [],
@@ -27,10 +28,10 @@ const initialState = {
 export const getIncomesItems = createAsyncThunk('results/getIncomesItems', async (ticker, limit, period, thunkAPI) => {
   try {
     let getIncomesUrl = `${baseUrl}${incomeEndPoint}${ticker}${apiKey}`;
-    if (limit > -1) {
+    if (limit !== '-') {
       getIncomesUrl = `${getIncomesUrl}${limitconstrain}${limit}`;
     }
-    if (period > -1) {
+    if (period !== '-') {
       getIncomesUrl = `${getIncomesUrl}${periodconstrain}${period}`;
     }
     const resp = await axios(getIncomesUrl);
@@ -87,10 +88,10 @@ export const getIncomesItems = createAsyncThunk('results/getIncomesItems', async
 export const getBalanceItems = createAsyncThunk('results/getBalanceItems', async (ticker, limit, period, thunkAPI) => {
   try {
     let getBalanceUrl = `${baseUrl}${balanceEndPoint}${ticker}${apiKey}`;
-    if (limit > -1) {
+    if (limit !== '-') {
       getBalanceUrl = `${getBalanceUrl}${limitconstrain}${limit}`;
     }
-    if (period > -1) {
+    if (period !== '-') {
       getBalanceUrl = `${getBalanceUrl}${periodconstrain}${period}`;
     }
     const resp = await axios(getBalanceUrl);
@@ -163,10 +164,10 @@ export const getBalanceItems = createAsyncThunk('results/getBalanceItems', async
 export const getCashFlowItems = createAsyncThunk('results/getCashFlowItems', async (ticker, limit, period, thunkAPI) => {
   try {
     let getCashFlowUrl = `${baseUrl}${cashFlowEndPoint}${ticker}${apiKey}`;
-    if (limit > -1) {
+    if (limit !== '-') {
       getCashFlowUrl = `${getCashFlowUrl}${limitconstrain}${limit}`;
     }
-    if (period > -1) {
+    if (period !== '-') {
       getCashFlowUrl = `${getCashFlowUrl}${periodconstrain}${period}`;
     }
     const resp = await axios(getCashFlowUrl);
@@ -254,7 +255,9 @@ const detailsSlice = createSlice({
     [getIncomesItems.fulfilled]: (state, action) => {
       state.isLoading = false;
       state.error = false;
-      state.detailedIncome = action.payload;
+      const myPayload = action.payload;
+      state.detailedIncome = myPayload;
+      state.reportedCurrency = myPayload[0].reportedCurrency;
     },
     [getBalanceItems.pending]: (state) => {
       state.isLoading = true;
@@ -267,7 +270,9 @@ const detailsSlice = createSlice({
     [getBalanceItems.fulfilled]: (state, action) => {
       state.isLoading = false;
       state.error = false;
-      state.detailedBalance = action.payload;
+      const myPayload = action.payload;
+      state.detailedBalance = myPayload;
+      state.reportedCurrency = myPayload[0].reportedCurrency;
     },
     [getCashFlowItems.pending]: (state) => {
       state.isLoading = true;
@@ -280,7 +285,9 @@ const detailsSlice = createSlice({
     [getCashFlowItems.fulfilled]: (state, action) => {
       state.isLoading = false;
       state.error = false;
-      state.detailedCashFlow = action.payload;
+      const myPayload = action.payload;
+      state.detailedCashFlow = myPayload;
+      state.reportedCurrency = myPayload[0].reportedCurrency;
     },
   },
 });

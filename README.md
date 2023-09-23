@@ -21,6 +21,7 @@
   - [Usage](#usage)
   - [Run tests](#run-tests)
   - [Deployment](#deployment)
+- [🎞 Recorded Demo](#demovideo)
 - [👥 Authors](#authors)
 - [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
@@ -127,6 +128,12 @@ npm run test
 ### Deployment
 
 Deploy this project on any websever
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🎞 Recorded Demo <a name="demovideo"></a>
+
+Please, check this 5 min video showing a [demo video] about how to use this application.(https://www.loom.com/share/49630714f32b45e88b255656faafdea5?sid=4905b2dd-2f0b-46ec-beda-192b3254c37e)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

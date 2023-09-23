@@ -42,7 +42,7 @@ const CashFlowList = ({ myCashFlowList }) => (
 CashFlowList.propTypes = {
   myCashFlowList: PropTypes.arrayOf(
     PropTypes.shape({
-      date: PropTypes.number.isRequired,
+      date: PropTypes.string.isRequired,
       accountsPayables: PropTypes.number.isRequired,
       accountsReceivables: PropTypes.number.isRequired,
       acquisitionsNet: PropTypes.number.isRequired,

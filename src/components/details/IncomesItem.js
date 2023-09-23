@@ -15,23 +15,23 @@ const IncomesItem = ({
   <div className={`${styles.look} ${styles.white}`}>
     <div>
       Date:
-      {date}
+      {` ${date}`}
     </div>
     <div>
       CIK:
-      {cik}
+      {` ${cik}`}
     </div>
     <div>
       Cost & Expenses:
-      {costAndExpenses}
+      {` ${costAndExpenses}`}
     </div>
     <div>
       Cost of Revenue:
-      {costOfRevenue}
+      {` ${costOfRevenue}`}
     </div>
     <div>
       Deprecation & Amortization:
-      {depreciationAndAmortization}
+      {` ${depreciationAndAmortization}`}
     </div>
     {/* <div>
       General & Administrative Exprenses:

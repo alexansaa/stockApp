@@ -17,6 +17,7 @@ const Filter = ({ myActives }) => {
 
   const {
     selectedReport,
+    companyName,
   } = useSelector((store) => store.details);
 
   const {
@@ -24,6 +25,8 @@ const Filter = ({ myActives }) => {
   } = useSelector((store) => store.actives);
 
   useEffect(() => {
+    const nameOption = document.querySelector('#nameList');
+    nameOption.value = companyName;
     setSelectedOption(selectedReport);
   }, []);
 

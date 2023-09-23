@@ -36,7 +36,7 @@ const BalanceList = ({ myBalanceList }) => (
 BalanceList.propTypes = {
   myBalanceList: PropTypes.arrayOf(
     PropTypes.shape({
-      date: PropTypes.number.isRequired,
+      date: PropTypes.string.isRequired,
       accountPayables: PropTypes.number.isRequired,
       capitalLeaseObligations: PropTypes.number.isRequired,
       cashAndCashEquivalents: PropTypes.number.isRequired,
