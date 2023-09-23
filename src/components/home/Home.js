@@ -7,7 +7,7 @@ import { setPageName } from '../../store/LayoutSlice';
 import { getActivesNames } from '../../store/homeSlice';
 import { setPeriod, setLimit } from '../../store/detailsSlice';
 
-import styles from '../../styles/Home.module.css';
+import styles from '../../styles/home.module.css';
 
 const Home = () => {
   const dispatch = useDispatch();
