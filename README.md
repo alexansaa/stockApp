@@ -133,7 +133,7 @@ Deploy this project on any websever
 
 ## 🎞 Recorded Demo <a name="demovideo"></a>
 
-Please, check this 5 min video showing a [video] about how to use this application.(https://www.loom.com/share/49630714f32b45e88b255656faafdea5?sid=4905b2dd-2f0b-46ec-beda-192b3254c37e)
+Please, check this 5 min video showing a [video](https://www.loom.com/share/49630714f32b45e88b255656faafdea5?sid=4905b2dd-2f0b-46ec-beda-192b3254c37e) about how to use this application.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
