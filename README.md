@@ -14,6 +14,7 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
+  - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -76,6 +77,12 @@ The memory across modules is manged with Redux, creating a store of slices.
 - **SPA development**
 - **React - Redux Implementation for slice management**
 - **Styled and ready to deploy**
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🚀 Live Demo <a name="live-demo"></a>
+
+- [Live Demo!](https://alexansaa.github.io/stockApp/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
