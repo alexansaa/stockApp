@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300&family=Lato&display=swap');
+
+.title {
+  text-align: center;
+}
+
+.look {
+  padding-top: 15px;
+  margin-left: 15px;
+  margin-bottom: 15px;
+  margin-right: 15px;
+}
+
+.lookFilt {
+  margin: 15px;
+}
+
+.lookFilt button {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.hidden {
+  display: none;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding-bottom: 5px;
+}
+
+.IbmFont {
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.LatoFont {
+  font-family: 'Lato', sans-serif;
+}
+
+.white {
+  color: white;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.blackBtn {
+  background-color: black;
+  color: rgb(216, 86, 155);
+  border: 1px solid rgb(216, 86, 155);
+  border-radius: 6px;
+  padding-left: 5px;
+  width: 45%;
+  height: 28px;
+}

@@ -1,0 +1,18 @@
+.look {
+  margin: 0;
+  padding: 0;
+}
+
+.white {
+  color: white;
+}
+
+.IbmFont {
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.title {
+  background-color: rgb(216, 86, 155);
+  padding-left: 3%;
+  font-weight: bold;
+}

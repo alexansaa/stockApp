@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300&family=Lato&display=swap');
+
+.white {
+  color: white;
+}
+
+.latoFont {
+  font-family: 'Lato', sans-serif;
+}
+
+.title {
+  background-color: rgb(216, 86, 155);
+  padding-left: 3%;
+  font-weight: bold;
+}
+
+.IbmFont {
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.elements {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.whiteImage {
+  filter: invert(100%);
+  max-height: 19px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding-right: 3px;
+  padding-top: 3px;
+}
+
+ul li {
+  height: 135px;
+  position: relative;
+  display: flex;
+}
+
+ul li:nth-child(4n-3),
+ul li:nth-child(4n) {
+  background-color: rgb(185, 67, 130);
+}
+
+ul li:nth-child(4n-2),
+ul li:nth-child(4n-1) {
+  background-color: rgb(216, 86, 155);
+}
+
+.itemDesc {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  background: none;
+  border: none;
+  text-align: left;
+}
+
+.itemDesc h5 {
+  margin: 0;
+  margin-top: 10px;
+  padding: 0;
+}
+
+.itemDesc p {
+  margin: 0;
+  margin-left: 10px;
+  padding: 0;
+}
+
+.itemTitle {
+  margin: 0;
+  margin-top: 5px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  padding: 0;
+}
+
+.itemInfo {
+  bottom: 0;
+  margin-top: auto;
+  margin-bottom: 25px;
+}
