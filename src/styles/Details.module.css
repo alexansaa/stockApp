@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300&family=Lato&display=swap');
+
+.look {
+  background-color: rgb(235, 91, 168);
+}
+
+.latoFont {
+  font-family: 'Lato', sans-serif;
+}

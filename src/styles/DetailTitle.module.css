@@ -1,0 +1,19 @@
+.myActiveLook {
+  color: white;
+  padding-top: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.myActiveLook h2 {
+  margin: 0;
+  padding: 0;
+}
+
+.myActiveDetails {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
